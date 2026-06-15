@@ -30,8 +30,10 @@ git push -u origin main
 6. After the workflow runs, your OAuth URL is:
 
 ```
-https://YOUR_USERNAME.github.io/ticktime-pebble/
+https://kanandarama.github.io/ticktime-pebble/
 ```
+
+**Repo:** https://github.com/kanandarama/ticktime-pebble
 
 ## 2. TickTick developer app **you** (requires your TickTick login)
 
