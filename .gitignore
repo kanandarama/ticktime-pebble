@@ -1,0 +1,5 @@
+node_modules/
+src/pkjs/config.js
+.DS_Store
+*.pebble
+build/

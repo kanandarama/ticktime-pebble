@@ -1,0 +1,32 @@
+{
+  "name": "ticktime-pebble",
+  "author": "Anand Kuchibhatla",
+  "version": "0.1.0",
+  "description": "Unofficial TickTick client for Pebble Time 2",
+  "keywords": ["pebble-app", "ticktick", "tasks"],
+  "private": true,
+  "dependencies": {
+    "@moddable/pebbleproxy": "^0.1.0"
+  },
+  "pebble": {
+    "displayName": "TickTime",
+    "uuid": "f92f3b9d-c49c-4bdb-879d-feeb614c2f4f",
+    "projectType": "moddable",
+    "sdkVersion": "3",
+    "enableMultiJS": true,
+    "targetPlatforms": ["emery"],
+    "watchapp": {
+      "watchface": false
+    },
+    "messageKeys": [
+      "COMMAND",
+      "AUTH_CODE",
+      "AUTH_STATUS",
+      "AUTH_TOKEN",
+      "ERROR_MSG"
+    ],
+    "resources": {
+      "media": []
+    }
+  }
+}

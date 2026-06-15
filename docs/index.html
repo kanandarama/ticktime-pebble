@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TickTime — TickTick Login</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      max-width: 32rem;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      line-height: 1.5;
+    }
+    code {
+      display: block;
+      word-break: break-all;
+      background: #f4f4f4;
+      padding: 1rem;
+      border-radius: 6px;
+      font-size: 0.9rem;
+    }
+    .ok { color: #0a7; }
+    .err { color: #c00; }
+    button {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>TickTime</h1>
+  <p id="status">Processing login…</p>
+  <p id="hint" hidden>
+    Open TickTime on your watch → <strong>Settings → Enter Auth Code</strong>
+    and type the code below.
+  </p>
+  <code id="code" hidden></code>
+  <button id="copy" hidden type="button">Copy code</button>
+  <script>
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var code = params.get("code");
+      var error = params.get("error");
+      var status = document.getElementById("status");
+      var hint = document.getElementById("hint");
+      var codeEl = document.getElementById("code");
+      var copyBtn = document.getElementById("copy");
+
+      if (error) {
+        status.textContent = "Login failed: " + error;
+        status.className = "err";
+        return;
+      }
+
+      if (!code) {
+        status.textContent = "No authorization code in URL.";
+        status.className = "err";
+        return;
+      }
+
+      status.textContent = "Login successful!";
+      status.className = "ok";
+      hint.hidden = false;
+      codeEl.hidden = false;
+      codeEl.textContent = code;
+      copyBtn.hidden = false;
+
+      copyBtn.addEventListener("click", function () {
+        navigator.clipboard.writeText(code).then(function () {
+          copyBtn.textContent = "Copied!";
+        });
+      });
+
+      try {
+        window.location = "pebblejs://close?code=" + encodeURIComponent(code);
+      } catch (e) {}
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+{
+  "include": [
+    "$(MODDABLE)/examples/manifest_mod.json",
+    "$(MODDABLE)/examples/manifest_typings.json"
+  ],
+  "modules": {
+    "*": [
+      "./main",
+      "./app",
+      "./styles",
+      "./api/client",
+      "./api/openApi",
+      "./api/models",
+      "./services/auth",
+      "./services/sync",
+      "./services/views",
+      "./storage/cache",
+      "./components/HeaderBar",
+      "./components/MenuList",
+      "./screens/HomeScreen",
+      "./screens/TaskListScreen",
+      "./screens/TaskDetailScreen",
+      "./screens/SettingsScreen",
+      "./screens/QuickAddScreen",
+      "./screens/ProjectListScreen"
+    ]
+  }
+}
